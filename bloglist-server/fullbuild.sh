@@ -11,9 +11,9 @@ npm install
 
 # Navigate to frontend directory and build
 echo "Building frontend..."
-cd ./bloglist-client # or whatever your frontend directory is named
+cd ./bloglist-client  # Changed from bloglist-client to match your actual directory name
 npm install
-npm run build
+npm run build  # This will use the local vite installation
 
 # Copy build files to backend
 echo "Moving build files..."
@@ -21,5 +21,3 @@ cp -r dist ../dist
 
 # Return to backend directory
 cd ..
-
-# Don't start the server here - let Render handle that
