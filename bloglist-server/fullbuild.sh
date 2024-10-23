@@ -11,17 +11,15 @@ npm install
 
 # Navigate to frontend directory and build
 echo "Building frontend..."
-cd ./bloglist-client # or bloglist-client, use the correct name
+cd ./bloglist-client # or whatever your frontend directory is named
 npm install
 npm run build
 
-# Copy or move the build directory to the backend
+# Copy build files to backend
 echo "Moving build files..."
-cp -r dist ../public  # Assuming Vite builds to 'dist'
+cp -r dist ../dist
 
 # Return to backend directory
 cd ..
 
-# Start the server
-echo "Starting server..."
-npm start
+# Don't start the server here - let Render handle that
