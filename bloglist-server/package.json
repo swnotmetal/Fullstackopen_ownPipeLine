@@ -22,7 +22,8 @@
     "dev": "cross-env NODE_ENV=production nodemon index.js",
     "start": "cross-env NODE_ENV=production node index.js",
     "lint": "eslint .",
-    "build-frontend": "cd ./bloglist-client && npm run build"
+    "build": "./fullbuild.sh",
+    "build-frontend": "cd ./bloglist-client && npm install && npm run build"
   },
   "repository": {
     "type": "git",

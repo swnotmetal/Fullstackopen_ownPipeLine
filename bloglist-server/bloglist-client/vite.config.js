@@ -11,6 +11,10 @@ export default defineConfig({
     setupFiles: ['./testSetup.js'], // corrected syntax
   },
 
+  build: {
+    outDir: 'dist',
+  },
+
   server: {
     proxy: {
       '/api': {

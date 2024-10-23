@@ -2,14 +2,26 @@
 
 echo "Starting the full build process"
 
+# Exit on error
+set -e
+
 # Install backend dependencies
+echo "Installing backend dependencies..."
 npm install
 
-# Build the frontend
-cd ./bloglist-client && npm install && npm run build
+# Navigate to frontend directory and build
+echo "Building frontend..."
+cd ./bloglist-client # or bloglist-client, use the correct name
+npm install
+npm run build
 
-# Go back to the backend directory
+# Copy or move the build directory to the backend
+echo "Moving build files..."
+cp -r dist ../public  # Assuming Vite builds to 'dist'
+
+# Return to backend directory
 cd ..
 
-# Start the backend server
-npm run start
+# Start the server
+echo "Starting server..."
+npm start

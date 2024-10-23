@@ -25,11 +25,16 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 app.use(middleware.requestLogger)
+app.use(express.static('dist'))
 app.use(middleware.tokenExtractor)
 app.use(middleware.userExtractor)
 app.use('/api/blogs', middleware.userExtractor, blogRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
+
+app.get('*', (req, res) => {
+  res.sendFile('dist/index.html', { root: '.' })  // or 'public/index.html' if using public
+})
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
 
