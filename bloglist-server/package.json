@@ -21,8 +21,7 @@
     "test:single": "cross-env NODE_ENV=test jest --verbose --runInBand --testPathPattern",
     "dev": "cross-env NODE_ENV=production nodemon index.js",
     "start": "cross-env NODE_ENV=production node index.js",
-    "lint": "eslint .",
-    "build": "./fullbuild.sh"
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",

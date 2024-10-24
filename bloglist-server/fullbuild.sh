@@ -5,31 +5,28 @@ echo "Starting the full build process"
 # Exit on error
 set -e
 
-# Install backend dependencies
-echo "Installing backend dependencies..."
+echo "Installing npm dependencies for the root project"
 npm install
 
-# Navigate to frontend directory and build
-echo "Building frontend..."
+echo "Navigating to bloglist-client"
 cd ./bloglist-client
+
+echo "Installing npm dependencies for bloglist-client"
 npm install
 
-if [ ! -f ./node_modules/.bin/vite ]; then
-  echo "Vite is not installed. Exiting."
-  exit 1
-fi
-export PATH="$PATH:./node_modules/.bin"  # Ensure local binaries are available
+echo "Building bloglist-client"
 npm run build
 
+echo "Copying dist folder to bloglist-server"
+cp -r dist ../bloglist-server
 
+echo "Navigating to bloglist-server"
+cd ../bloglist-server
 
-# Copy build files to backend
-echo "Moving build files..."
-cp -r dist ../dist
+echo "Installing npm dependencies for bloglist-server"
+npm install
 
-# Return to backend directory
-cd ..
-
-# Start the backend server
-echo "Starting backend server..."
+echo "Building bloglist-server"
 npm run start
+
+echo "Full build process completed successfully"
