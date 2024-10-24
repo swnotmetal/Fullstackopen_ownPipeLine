@@ -11,7 +11,7 @@ cd ./bloglist-client
 echo "Installing npm dependencies for bloglist-client"
 npm install
 
-echo "Building bloglist-client
+echo "Building bloglist-client"
 npm run build
 
 echo "Copying dist folder to bloglist-server"
@@ -24,3 +24,4 @@ echo "Building bloglist-server"
 npm run build
 
 echo "Full build process completed successfully"
+
