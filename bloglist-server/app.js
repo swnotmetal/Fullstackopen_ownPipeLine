@@ -32,6 +32,9 @@ app.use(middleware.userExtractor)
 app.use('/api/blogs', middleware.userExtractor, blogRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
+app.get('/', (req, res) => {
+  res.send('Welcome to the Bloglist API')
+})
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
 
