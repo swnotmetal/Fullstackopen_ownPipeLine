@@ -21,7 +21,8 @@
     "test:single": "cross-env NODE_ENV=test jest --verbose --runInBand --testPathPattern",
     "dev": "cross-env NODE_ENV=production nodemon index.js",
     "start": "cross-env NODE_ENV=production node index.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "build": "echo 'No build step defined for bloglist-server'"
   },
   "repository": {
     "type": "git",
