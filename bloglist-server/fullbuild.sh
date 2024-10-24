@@ -5,9 +5,6 @@ echo "Starting the full build process"
 # Exit on error
 set -e
 
-echo "Installing npm dependencies for the root project"
-npm install
-
 echo "Navigating to bloglist-client"
 cd ./bloglist-client
 
@@ -23,10 +20,7 @@ cp -r dist ../bloglist-server
 echo "Navigating to bloglist-server"
 cd ../bloglist-server
 
-echo "Installing npm dependencies for bloglist-server"
-npm install
-
 echo "Building bloglist-server"
-npm run start
+npm run build
 
 echo "Full build process completed successfully"
