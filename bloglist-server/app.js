@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
+const path = require('path')
 const config = require('./utils/config')
 const logger = require('./utils/logger')
 const middleware = require('./utils/middleware')
@@ -34,6 +35,10 @@ app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
 app.get('/', (req, res) => {
   res.send('Welcome to the Bloglist API')
+})
+// Add a route to serve the frontend
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'dist', 'index.html'))
 })
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
