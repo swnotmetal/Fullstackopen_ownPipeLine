@@ -15,7 +15,7 @@ echo "Building bloglist-client"
 npm run build
 
 echo "Copying dist folder to bloglist-server"
-cp -r dist ../bloglist-server
+cp -r dist ../bloglist-server/dist
 
 echo "Navigating to bloglist-server"
 cd ../bloglist-server
@@ -24,4 +24,5 @@ echo "Building bloglist-server"
 npm run build
 
 echo "Full build process completed successfully"
+
 
