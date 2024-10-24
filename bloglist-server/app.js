@@ -33,13 +33,16 @@ app.use(middleware.userExtractor)
 app.use('/api/blogs', middleware.userExtractor, blogRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
+// Add a route for the root path
 app.get('/', (req, res) => {
-  res.send('Welcome to the Bloglist API')
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'))
 })
+
 // Add a route to serve the frontend
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'dist', 'index.html'))
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'))
 })
+
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
 

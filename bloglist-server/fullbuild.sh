@@ -25,4 +25,3 @@ npm run build
 
 echo "Full build process completed successfully"
 
-
